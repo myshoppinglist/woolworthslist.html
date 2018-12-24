@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>My Shopping List</title>
+ <script>
+  function addItem() {
+   var newItem = document.createElement("div");
+   newItem.innerHTML = document.getElementById("box").value;
+   newItem.onclick = removeItem;
+   document.getElementById("list").appendChild(newItem);
+   saveList();
+  }
+  function removeItem() {
+   document.getElementById("list").removeChild(this);
+   saveList();
+  }
+  function saveList() {
+   localStorage.storedList = document.getElementById("list").innerHTML;
+  }
+  function loadList() {
+   document.getElementById("list").innerHTML = localStorage.storedList;
+   for(var i = 0; i < list.children.length; i++) {
+    list.children[i].onclick = removeItem;
+   }
+  }
+ </script>
+ <style>
+  .header {
+    height:75px; 
+    width: 350px; 
+    background-color:black; 
+    float: centre; 
+    color: white;
+    padding:10px; 
+    margin:20px;
+    text-align:centre; 
+    font-size:24px;
+  }
+  .app {
+    height:600px;
+    width: 350px; 
+    background-color:beige; 
+    float: centre; 
+    padding:10px; 
+    margin:20px;
+  }
+  input[type="button"] {
+   background-color: white;
+  }
+ </style>
+</head>
+<body>
+ <div class="header">
+<script>
+alert ("Hi, Welcome to your new online shopping list, this website is still being tested so you may experience unexpected errors, but we are working to fix all bugs on this website");
+</script>
+  <p>My Shopping List</p>
+ </div>
+ <div class="app">
+  <p style="font-size:18px; font-style:bold;">My Shopping List</p>
+  <input type="text" id="box" value=""/>
+  <br/>
+  <input type="button" value="Add item" onclick="addItem();"/>
+  <br/>
+   <div id="list"></div>
+ </div>
+ <script>
+  if(localStorage.storedList) {
+   loadList();
+  }
+  <p>To delete items, click the item and it will be removed from your list.</p>
+ </script>
+</body>
+</html>
+<a href="myshoppinglist.github.io/googlehome.html/">Link your google home to your list</a>
